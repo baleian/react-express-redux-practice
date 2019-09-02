@@ -1,5 +1,5 @@
 {
-  "name": "store-refiner",
+  "name": "refiner",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,7 @@
     "eject": "#warning! react-scripts eject"
   },
   "proxy": "http://localhost:4000",
-  "homepage": "http://localhost:4000/StoreRefiner",
+  "homepage": "http://localhost:4000/Refiner",
   "eslintConfig": {
     "extends": "react-app"
   },
