@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec babel-node ./bin/www"
+    "start": "NODE_ENV=production node ./bin/www",
+    "start_win": "set NODE_ENV=production && node ./bin/www",
+    "start-dev": "nodemon --exec babel-node ./bin/www-dev",
+    "build": "rm -rf build && babel -d ./build ./src -s",
+    "build_win": "del /s /q build && babel -d ./build ./src -s"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
