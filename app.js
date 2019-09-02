@@ -22,6 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/v1', apiRouter);
 
+app.use('/StoreRefiner', express.static(path.join(__dirname, 'client', 'store-refiner', 'build')));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
