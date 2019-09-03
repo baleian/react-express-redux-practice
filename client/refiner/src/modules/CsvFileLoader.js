@@ -16,11 +16,16 @@ const initialState = {
 export const setFiles = (files) => ({ type: SET_FILES, payload: files });
 export const setConfig = (update) => ({ type: SET_CONFIG, payload: update });
 
-export const load = () => (dispatch, getState) => {
+export const load = (columns) => (dispatch, getState) => {
     const { files, config } = getState().csvFileLoader;
     Papa.parse(files[0], {
         ...config,
         complete: (results) => {
+            results.data.forEach(data => {
+                columns.forEach(col => {
+                    data[col.dataField] = data[col.dataField] || '';
+                });
+            });
             dispatch(loadData(results.data));
         }
     });
