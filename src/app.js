@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { renderFile as htmlRenderEngine } from 'ejs';
 import indexRouter from './routes/index';
+import refinerRouter from './routes/refiner';
 import apiRouter from './routes/api/v1';
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', indexRouter);
 app.use('/api/v1', apiRouter);
 
+app.use('/Refiner', refinerRouter);
 app.use('/Refiner', express.static(path.join(__dirname, '../client/refiner/build')));
 
 // catch 404 and forward to error handler
