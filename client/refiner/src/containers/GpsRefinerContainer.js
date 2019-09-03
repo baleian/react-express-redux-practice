@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
+import cellEditFactory from 'react-bootstrap-table2-editor';
 
 import CSVFileLoader from '../components/CSVFileLoader'
 import { setFiles, setConfig, load } from '../modules/CsvFileLoader';
@@ -16,6 +17,11 @@ const columns = [
     { dataField: 'longitude', text: 'Longitude' },
     { dataField: '_tools', text: 'Tools' }
 ];
+
+const cellEdit = cellEditFactory({
+    mode: 'click',
+    blurToSave: true
+});
 
 const GpsRefinerContainer = () => {
     const { datas } = useSelector(state => state.dataLoader, []);
@@ -49,6 +55,7 @@ const GpsRefinerContainer = () => {
                 keyField="id" 
                 data={datas} 
                 columns={columns} 
+                cellEdit={cellEdit}
             />
         </div>
     );
